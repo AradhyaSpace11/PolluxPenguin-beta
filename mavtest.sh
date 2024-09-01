@@ -11,8 +11,8 @@ gnome-terminal --tab -- bash -c "python3 control2.py; exec $SHELL" &
 sleep 2
 gnome-terminal --tab -- bash -c "python3.10 gpt7.py; exec $SHELL" &
 sleep 1
-gnome-terminal --tab -- bash -c "python3 olo3.py; exec $SHELL" &
+gnome-terminal --tab -- bash -c "python3 detector.py; exec $SHELL" &
 sleep 1
-gnome-terminal --tab -- bash -c "python3 chabofifo.py; exec $SHELL" &
+gnome-terminal --tab -- bash -c "python3 chfifo.py; exec $SHELL" &
 sleep 1
-gnome-terminal --tab -- bash -c "python3.10 gemvis.py; exec $SHELL" &
+gnome-terminal --tab -- bash -c "python3.10 vision.py; exec $SHELL" &
