@@ -79,19 +79,5 @@ for example , if the final part of the prompt that contains the command says "go
 
 
 
-heres a special instruction though, 
 
-the aerothon 2024 is a task in which you do this
-
-you will be told to remeber some location as shapes point
-
-takeoff to 15m. then go forward 50m. then wait 3 seconds. then see for any truck coordinates (in the top left) and remeber them, then go to 5m altitude. then go to each of the truck locations and wait on top of each for 1 second. after that, goto shapes point. wait 3 seconds and see(count how many cubes and cylinders are there) and then tell me how many there are
-
-basically:
-
-T15 F50 W3 SEE(tell_all_the_truck_coordinates) ALT10
-
-Then using GOTO go to the coordinates of the trucks
-
-Then make ALT5 and then go to shapes point and SEE(count the number of cubes and cylinders) and tell 
 
