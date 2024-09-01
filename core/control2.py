@@ -39,7 +39,6 @@ def take_screenshot():
     if not os.path.exists(screenshot_folder):
         os.makedirs(screenshot_folder)
     
-    # Capture the region using mss
     with mss.mss() as sct:
         monitor = {"top": y, "left": x, "width": width, "height": height}
         sct_img = sct.grab(monitor)
@@ -156,7 +155,6 @@ def calculate_target_coordinates(distance, bearing):
     return new_lat, new_lon
 
 def fiforead(fifo_path):
-    """Check if the FIFO exists, create it if not, and read from it."""
     if not os.path.exists(fifo_path):
         os.mkfifo(fifo_path)
     
@@ -169,11 +167,9 @@ def fiforead(fifo_path):
         return ""
 
 def fifowrite(fifo_path, whatToWrite):
-    """Check if the FIFO exists, create it if not, and write to it."""
     if not os.path.exists(fifo_path):
         os.mkfifo(fifo_path)
     
-    # Open the FIFO in non-blocking mode
     try:
         with open(fifo_path, 'w', os.O_NONBLOCK) as fifo:
             fifo.write(whatToWrite)
@@ -218,9 +214,7 @@ def set_altitude(altitude):
     return result
 
 def update_status():
-    """
-    Continuously updates the status of the drone and writes to FIFO without printing to the terminal.
-    """
+
     global stop_requested
     while True:
         if stop_requested:
@@ -231,22 +225,20 @@ def update_status():
             "latitude": current_location.lat,
             "longitude": current_location.lon,
             "altitude": current_location.alt,
-            "bearing": current_heading  # Include the heading (bearing) in the status
+            "bearing": current_heading  
         }
-        status_str = json.dumps(status)  # Convert status dictionary to JSON string
+        status_str = json.dumps(status) 
         with open(status_fifo_path, 'w') as fifo:
             fifo.write(status_str + '\n')
         with open(statusa_fifo_path, 'w') as fifo:
-            fifo.write(status_str + '\n')# Write JSON string to FIFO followed by a newline
-        time.sleep(0.2)  # Update status every 0.2 seconds
+            fifo.write(status_str + '\n')
+        time.sleep(0.2) 
 
 
 
       
 def send_ned_velocity(velocity_x, velocity_y, velocity_z, duration):
-    """
-    Move vehicle in direction based on specified velocity vectors in the body frame.
-    """
+
     msg = vehicle.message_factory.set_position_target_local_ned_encode(
         0, 0, 0,
         mavutil.mavlink.MAV_FRAME_BODY_NED,  # Use the body frame

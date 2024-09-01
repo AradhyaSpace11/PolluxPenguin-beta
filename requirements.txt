@@ -1,0 +1,9 @@
+opencv-python
+mss
+geopy
+ultralytics
+torch
+torchvision
+torchaudio
+google-generativeai
+
