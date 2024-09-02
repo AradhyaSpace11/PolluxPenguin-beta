@@ -25,9 +25,9 @@ Ubuntu 20.04 LTS, ROS Noetic
 
 ### Running the Project
 
-- cd into the repo:
+- cd into the repo core:
   ```bash
-  cd PolluxPenguin-beta
+  cd PolluxPenguin-beta/core
   ```
 
 - make the runner executable:
