@@ -19,7 +19,7 @@ Ubuntu 20.04 LTS, ROS Noetic
    - Ensure you have your Gemini API key ready.
    - Set the key using the following command:
      ```bash
-     echo GOOGLE_API_KEY='your_api_key'
+     export GOOGLE_API_KEY="your-api-key"
      ```
    - Replace `'your_api_key'` with your actual Gemini API key.
 
