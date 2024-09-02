@@ -5,16 +5,12 @@ import sys
 import google.generativeai as genai # type: ignore
 
 
-# Load API key from environment variables for security
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
-# Configure the Gemini API with your API key
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# Initialize the generative model
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-# Define the paths for the FIFO pipes
 fifo_paths = {
     "command": '/tmp/gpt_command_fifo',
     "abort": '/tmp/gpt_abort_fifo',
