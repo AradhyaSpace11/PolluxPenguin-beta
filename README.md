@@ -18,23 +18,23 @@ Ubuntu 20.04 LTS, ROS Noetic
 
 ### Running the Project
 
-- cd into the repo core:
+1. - cd into the repo core:
   ```bash
   cd PolluxPenguin-beta/core
   ```
 
-- Ensure you have your Gemini API key ready.
-- Set the key using the following command:
+2. - Ensure you have your Gemini API key ready.
+    - Set the key using the following command:
   ```bash
   export GOOGLE_API_KEY="your-api-key"
   ```
 - Replace `'your_api_key'` with your actual Gemini API key.
 
-- make the runner executable:
+3. - make the runner executable:
   ```bash
   chmod +x mavtest.sh
   ```
-- Once the setup is complete, you can start the simulation using:
+4. - Once the setup is complete, you can start the simulation using:
   ```bash
   ./mavtest.sh
   ```
