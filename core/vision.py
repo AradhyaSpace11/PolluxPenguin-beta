@@ -11,7 +11,7 @@ seecont_fifo_path = '/tmp/gpt_seecont_fifo'
 folder_path = "./captures"
 text_file_path = "./img_text.txt"  # Path to store the text content
 
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 def fifowrite(fifo_path, whatToWrite):
     """Write to a FIFO."""
@@ -43,7 +43,7 @@ def get_latest_image(folder_path):
     return max(image_files, key=os.path.getmtime)
 
 # Initialize the Generative AI model
-genai.configure(api_key=GEMINI_API_KEY)
+genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-pro')
 
 while True:
