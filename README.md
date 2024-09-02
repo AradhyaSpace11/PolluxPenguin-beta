@@ -1,10 +1,11 @@
 # PolluxPenguin
 
 ## Prerequisites
-Ubuntu 20.04 LTS, ROS Noetic
 
+- **Operating System**: Ubuntu 20.04 LTS
+- **ROS Version**: ROS Noetic
 
-### Setup
+## Setup
 
 1. **Install Gazebo and Iris ArduCopter**
    - Follow the instructions in [this guide](https://github.com/monemati/multiuav-gazebo-simulation) to set up Gazebo and Iris ArduCopter.
@@ -15,36 +16,32 @@ Ubuntu 20.04 LTS, ROS Noetic
      pip install -r requirements.txt
      ```
 
+## Running the Project
 
-### Running the Project
+1. **Navigate to the Core Directory**
+   - Use the following command to move into the core directory:
+     ```bash
+     cd PolluxPenguin-beta/core
+     ```
 
-1. cd into the repo core:
-  ```bash
-  cd PolluxPenguin-beta/core
-  ```
+2. **Set the Google API Key**
+   - Use the following command to set the API key:
+     ```bash
+     export GOOGLE_API_KEY="your-api-key"
+     ```
+   - Replace `"your-api-key"` with your actual Gemini API key.
 
+3. **Make the Runner Executable**
+   - Run this command to make the runner script executable:
+     ```bash
+     chmod +x mavtest.sh
+     ```
 
-
-2. Set the key using the following command:
-    
-  ```bash
-  export GOOGLE_API_KEY="your-api-key"
-  ```
-- Replace `'your_api_key'` with your actual Gemini API key.
-
-
-
-3. make the runner executable:
-  ```bash
-  chmod +x mavtest.sh
-  ```
-
-
-
-4. Once the setup is complete, you can start the simulation using:
-  ```bash
-  ./mavtest.sh
-  ```
+4. **Start the Simulation**
+   - Once the setup is complete, start the simulation with:
+     ```bash
+     ./mavtest.sh
+     ```
 
 ### Additional Notes
 
