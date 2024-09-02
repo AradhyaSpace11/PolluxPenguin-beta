@@ -2,8 +2,8 @@
 Version=1.0
 Name=MavTest Script
 Comment=Run the mavtest.sh script
-Exec=./PolluxPenguin/mavtest.sh
-Icon=./PolluxPenguin/imageslogoo.jpeg
+Exec=./PolluxPenguin-beta/core/mavtest.sh
+Icon=./PolluxPenguin-beta/imageslogoo.jpeg
 Terminal=true
 Type=Application
 Categories=Utility;

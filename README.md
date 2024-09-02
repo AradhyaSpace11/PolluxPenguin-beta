@@ -25,6 +25,11 @@ Ubuntu 20.04 LTS, ROS Noetic
 
 ### Running the Project
 
+- cd into the repo:
+  ```bash
+  cd PolluxPenguin-beta
+  ```
+
 - make the runner executable:
   ```bash
   chmod +x mavtest.sh
