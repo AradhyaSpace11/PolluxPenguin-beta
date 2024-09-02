@@ -25,6 +25,10 @@ Ubuntu 20.04 LTS, ROS Noetic
 
 ### Running the Project
 
+- make the runner executable:
+  ```bash
+  chmod +x mavtest.sh
+  ```
 - Once the setup is complete, you can start the simulation using:
   ```bash
   ./mavtest.sh
