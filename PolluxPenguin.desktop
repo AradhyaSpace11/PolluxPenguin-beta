@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
-Name=MavTest Script
+Name=PolluxPenguin
 Comment=Run the mavtest.sh script
-Exec=~/PolluxPenguin-beta/core/mavtest.sh
-Icon=~/PolluxPenguin-beta/imageslogoo.jpeg
+Exec=/home/aradhya/PolluxPenguin-beta/core/mavtest.sh
+Icon=/home/aradhya/PolluxPenguin-beta/images/logoo.jpeg
 Terminal=true
 Type=Application
 Categories=Utility;
