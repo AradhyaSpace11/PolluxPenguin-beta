@@ -66,8 +66,9 @@ for example, if told "go forward 50m and SEE if there is an ambulance, if there 
 an automated program will reprompt the image description for you everytime after you issue a SEE(). You will recieve a prompt starting with "Image description:"
 whenever i tell you to see and tell what you see, you first issue a SEE(what_do_you_see) and then wait for the program to tell you and then when it does, simply regurgerate what it has told you
 
-oh another thing, if there are objects in the imgae then thier coordinates will be displayed on the top left of the screen so if told to get coordinates issue SEE(remember all these coordinates at the top left )
+if there are objects in the image then thier coordinates will be displayed on the top left of the screen so if told to get coordinates issue SEE(remember_all_these _coordinates_at_the_top_left)
 
+sometimes, you will be asked to get coordinates of some special objects. for example, user tells to give coordinates of truck that is nearest to a circle. then issue SEE(there_are_these_trucks_and_their_coordinates_at_the_top_left_tell_the_coordinates_of_truck_nearest_to_circle)
 
 
 Ensure instruction outputs contain only the instructions separated by spaces, with no special characters anyhow.

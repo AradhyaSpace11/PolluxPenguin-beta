@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputDisplay = document.querySelector('.output_display');
     const inputTextbox = document.querySelector('.input_textbox');
     const startMicButton = document.getElementById('startMic');
-    const stopButton = document.querySelector('.stop');
-    const rtlButton = document.querySelector('.rtl');
     const statusBox = document.querySelector('.status_box');
 
     let isVoiceInput = false; // Flag to track voice input
@@ -20,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Automatically refresh the output display every 2 seconds
-    setInterval(loadOutputText, 2000); // Refresh every 2 seconds (2000 milliseconds)
+    setInterval(loadOutputText, 500); // Refresh every 2 seconds (2000 milliseconds)
 
     // Function to handle input text submission
-    function submitInputText(text) {
-        const inputText = text || inputTextbox.value;
+    function submitInputText() {
+        const inputText = inputTextbox.value;
 
         fetch('/inputtext', {
             method: 'POST',
@@ -50,15 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Add event listeners for the 'stop' and 'rtl' buttons
-    stopButton.addEventListener('click', () => {
-        submitInputText('stop'); // Send 'stop' when stop button is pressed
-    });
-
-    rtlButton.addEventListener('click', () => {
-        submitInputText('rtl'); // Send 'rtl' when rtl button is pressed
-    });
-
     // Voice recognition feature
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -68,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         recognition.isStarted = false; // Initialize isStarted flag
 
         let silenceTimer;
-        const silenceThreshold = 500;
+        const silenceThreshold = 2000;
 
         recognition.onstart = function() {
             statusBox.value = 'Listening...';

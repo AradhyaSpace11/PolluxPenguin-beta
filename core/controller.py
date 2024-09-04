@@ -329,8 +329,10 @@ def execute_command(command):
             time.sleep(0.1)
             fifowrite(seecont_fifo_path, see_context)
             print(f"SEE command processed with context: {see_context}")
-            time.sleep(7)
+            time.sleep(1)
             return True
+        
+        
                     
             
             

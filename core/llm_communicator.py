@@ -32,6 +32,45 @@ safetysettings = [
     {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"}
 ]
 
+intext = "/home/aradhya/PolluxPenguin-beta/webApp/inputtext.txt"
+outtext = "/home/aradhya/PolluxPenguin-beta/webApp/outputtext.txt"
+
+
+
+
+
+
+def titoread(filepath):
+    """
+    Blocks until the file has content, then reads the content and clears the file.
+    Returns the content as a string.
+    If the file is empty, it keeps checking until content is available.
+    """
+    # Keep checking the file until it has content
+    while True:
+        if os.path.exists(filepath):
+            with open(filepath, 'r') as file:
+                content = file.read()
+                if content:  # If content is not empty, break the loop
+                    break
+        time.sleep(0.1)  # Sleep for 1 second before checking again
+    
+    # Clear the content of the file after reading (FIFO behavior)
+    open(filepath, 'w').close()
+
+    return content
+
+def titowrite(filepath, whattowrite):
+    """
+    Writes a string to the file at the given filepath. If the file doesn't exist, it creates it.
+    """
+    with open(filepath, 'w') as file:
+        file.write(whattowrite)
+
+
+
+
+
 def fiforead(fifo_path):
     """Check if the FIFO exists, create it if not, and read from it."""
     if not os.path.exists(fifo_path):
@@ -98,12 +137,14 @@ def send_command(instruction):
         with open(fifo_paths["command"], 'w') as fifo:
             fifo.write(instruction + "\n")
         print(f"Drone: {instruction}")
+        titowrite(outtext, instruction)
     except Exception as e:
         print(f"Error writing to command FIFO: {e}")
 
 def process_image_description(chat_session, description, user_prompt):
-    full_prompt = f"Based on this image description: '{description}', and the user's instruction: '{user_prompt}', what should the drone do next? Respond with only the exact command the drone should execute, such as 'F100', 'LAND', or 'SEE'."
-    
+    #full_prompt = f"Based on this image description: '{description}', and the user's instruction: '{user_prompt}', what should the drone do next? Respond with only the exact command the drone should execute, such as 'F100', 'LAND', or 'SEE'."
+    full_prompt = f"Based on this image description: '{description}', and the user's instructions, reply back with either the proper drones instructions, or if told to, then simply reply back with the image description"
+
     response = chat_session.send_message(full_prompt, safety_settings=safetysettings)
     return response.text.strip()
 
@@ -119,15 +160,17 @@ def handle_gpt_commands(chat_session):
     abor = 'nothing'
     
     while True:
-        user_prompt = input("Commander: ")
+        user_prompt = titoread(intext)
+        #user_prompt = input("Commander: ")
         #user_prompt = fiforead(fifo_paths["comin"])
+        #user_prompt = str(txtread(intext))
 
-        if user_prompt.lower() == "exit":
+        if user_prompt == "exit":
             #output_instruction("Exiting the drone command interface. Goodbye!")
             print("Exiting the drone command interface. Goodbye!")
             break
 
-        if user_prompt.lower() == "stop":
+        if user_prompt == "stop":
             send_abort_command('stop')
             time.sleep(2)
             abor = 'nothing'
@@ -149,7 +192,7 @@ def handle_gpt_commands(chat_session):
         if instruction:
             send_command(instruction)
             #output_instruction(instruction)
-            
+            #txtwrite(outtext, instruction)
             
             
             while "SEE" in instruction:
@@ -157,7 +200,7 @@ def handle_gpt_commands(chat_session):
                 if flg == "i" :
                     #output_instruction("Processing image flag...")
                     print("Processing image flag...")
-                    time.sleep(7)  # Wait for the image description to be written
+                    time.sleep(8)  # Wait for the image description to be written
                     image_description = read_img_text(text_file_path)
                     if image_description:
                         next_instruction = process_image_description(chat_session, image_description, user_prompt)
