@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Automatically refresh the output display every 2 seconds
-    setInterval(loadOutputText, 2000); // Refresh every 2 seconds (2000 milliseconds)
+    setInterval(loadOutputText, 500); // Refresh every 2 seconds (2000 milliseconds)
 
     // Function to handle input text submission
     function submitInputText(text) {

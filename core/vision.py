@@ -44,7 +44,7 @@ def get_latest_image(folder_path):
 
 # Initialize the Generative AI model
 genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-1.5-pro')
 
 while True:
     flag = fiforead(img_fifo_path)

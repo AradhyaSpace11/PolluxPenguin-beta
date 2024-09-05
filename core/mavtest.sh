@@ -21,7 +21,9 @@ gnome-terminal --tab -- bash -c "python3 detector.py; exec $SHELL" &
 sleep 1
 gnome-terminal --tab -- bash -c "python3 chfifo.py; exec $SHELL" &
 sleep 1
-gnome-terminal --tab -- bash -c "python3.10 vision.py; exec $SHELL" &
+
+source visiongpt-env/bin/activate
+gnome-terminal --tab -- bash -c "python3 visiongpt.py; exec $SHELL" &
 sleep 1
 
 # Start the web server

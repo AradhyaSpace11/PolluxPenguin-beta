@@ -200,7 +200,7 @@ def handle_gpt_commands(chat_session):
                 if flg == "i" :
                     #output_instruction("Processing image flag...")
                     print("Processing image flag...")
-                    time.sleep(8)  # Wait for the image description to be written
+                    time.sleep(4)  # Wait for the image description to be written
                     image_description = read_img_text(text_file_path)
                     if image_description:
                         next_instruction = process_image_description(chat_session, image_description, user_prompt)
