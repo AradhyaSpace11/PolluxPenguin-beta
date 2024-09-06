@@ -1,4 +1,4 @@
-import openai
+import openai # type: ignore
 import base64
 import os
 import glob

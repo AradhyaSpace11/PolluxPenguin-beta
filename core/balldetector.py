@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
-import mss
+import mss # type: ignore
 import math
-from geopy.distance import geodesic
-from ultralytics import YOLO
+from geopy.distance import geodesic # type: ignore  
+from ultralytics import YOLO # type: ignore 
 import json
 import time
 import os
