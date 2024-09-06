@@ -17,7 +17,7 @@ sleep 2
 # Now run Python programs with access to the API key
 gnome-terminal --tab -- bash -c "python3.10 llm_communicator.py; exec $SHELL" &
 sleep 1
-gnome-terminal --tab -- bash -c "python3 detector.py; exec $SHELL" &
+gnome-terminal --tab -- bash -c "python3 balldetector.py; exec $SHELL" &
 sleep 1
 gnome-terminal --tab -- bash -c "python3 chfifo.py; exec $SHELL" &
 sleep 1
