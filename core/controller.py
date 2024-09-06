@@ -1,12 +1,12 @@
 import threading
-from dronekit import connect, VehicleMode, LocationGlobalRelative
+from dronekit import connect, VehicleMode, LocationGlobalRelative # type: ignore
 import time
 import math
-from pymavlink import mavutil
+from pymavlink import mavutil # type: ignore
 import os
 import json
 import numpy as np
-import mss
+import mss # type: ignore
 import datetime
 import cv2
 
@@ -329,8 +329,10 @@ def execute_command(command):
             time.sleep(0.1)
             fifowrite(seecont_fifo_path, see_context)
             print(f"SEE command processed with context: {see_context}")
-            time.sleep(7)
+            time.sleep(1)
             return True
+        
+        
                     
             
             
