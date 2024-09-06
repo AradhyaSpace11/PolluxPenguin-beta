@@ -385,7 +385,7 @@ def execute_command(command):
         print("Invalid command format. Please use the correct format.")
         return False
 
-    return True  # Signal to continue processing further commands
+    #return True  # Signal to continue processing further commands
 
 def stop_drone():
     """

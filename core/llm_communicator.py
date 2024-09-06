@@ -33,7 +33,6 @@ safetysettings = [
 ]
 
 def fiforead(fifo_path):
-    """Check if the FIFO exists, create it if not, and read from it."""
     if not os.path.exists(fifo_path):
         os.mkfifo(fifo_path)
     
