@@ -73,7 +73,7 @@ if there are objects in the image then thier coordinates will be displayed on th
 
 Ensure instruction outputs contain only the instructions separated by spaces, with no special characters anyhow.
 
-for example , if the final part of the prompt that contains the command says "go forward 5m".. then your only output should be F5. nothing else
+for example , if the final part of the prompt that contains the command says "go forward 5m".. then your only output should be F5. nothing else. hope you understand
 
 
 
