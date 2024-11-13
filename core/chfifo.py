@@ -14,6 +14,7 @@ try:
             message = fifo.readline().strip()
             if message:
                 print(f"Received message: {message}")
+                
 except KeyboardInterrupt:
     print("Stopped listening for messages.")
 except Exception as e:
